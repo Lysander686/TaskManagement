@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import LoginPage from '@/views/LoginPage'
 import RegisterPage from '@/views/RegisterPage'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -15,12 +15,12 @@ const routes = [
     name: 'RegisterPage',
     component: RegisterPage
   }
-]
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
+});
 
 export default router

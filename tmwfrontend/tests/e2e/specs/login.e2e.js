@@ -9,4 +9,4 @@ module.exports = {
       .assert.containsText('h1', TaskAgile)
       .end()
   }
-}
+};
