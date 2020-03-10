@@ -15,6 +15,7 @@ module.exports = {
       ]
     }
   },
+  // disable eslint error
   chainWebpack: config => {
     config.module.rules.delete('eslint');
   }
