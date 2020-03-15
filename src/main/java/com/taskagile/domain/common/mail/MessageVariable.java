@@ -25,12 +25,11 @@ public class MessageVariable {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o)
-      return true;
-    if (!(o instanceof MessageVariable))
-      return false;
+    if (this == o) return true;
+    if (!(o instanceof MessageVariable)) return false;
     MessageVariable that = (MessageVariable) o;
-    return Objects.equals(value, that.value);
+    return Objects.equals(key, that.key) &&
+      Objects.equals(value, that.value);
   }
 
   @Override
@@ -46,4 +45,3 @@ public class MessageVariable {
       '}';
   }
 }
-

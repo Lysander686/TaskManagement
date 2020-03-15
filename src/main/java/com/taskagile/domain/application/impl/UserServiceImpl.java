@@ -1,16 +1,23 @@
 package com.taskagile.domain.application.impl;
 
+
 import com.taskagile.domain.application.UserService;
 import com.taskagile.domain.application.commands.RegistrationCommand;
 import com.taskagile.domain.common.event.DomainEventPublisher;
 import com.taskagile.domain.common.mail.MailManager;
 import com.taskagile.domain.common.mail.MessageVariable;
-import com.taskagile.domain.model.user.RegistrationException;
-import com.taskagile.domain.model.user.RegistrationManagement;
-import com.taskagile.domain.model.user.User;
+import com.taskagile.domain.model.user.*;
 import com.taskagile.domain.model.user.events.UserRegisteredEvent;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
+import javax.transaction.Transactional;
+
+@Service
+@Transactional
 public class UserServiceImpl implements UserService {
   private RegistrationManagement registrationManagement;
   private DomainEventPublisher domainEventPublisher;

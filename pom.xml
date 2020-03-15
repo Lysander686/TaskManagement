@@ -5,13 +5,13 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.2.4.RELEASE</version>
+    <version>2.0.4.RELEASE</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.taskagile</groupId>
   <artifactId>app</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>TaskAgile</name>
+  <name>TaskManagementWeb</name>
   <description>task management</description>
 
 
@@ -24,6 +24,10 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -61,13 +65,7 @@
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
       <version>${commons-io.version}</version>
-
     </dependency>
-    <dependency>
-      <groupId>org.freemarker</groupId>
-      <artifactId>freemarker</artifactId>
-    </dependency>
-
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
@@ -89,6 +87,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
 
   <build>
     <plugins>
@@ -116,34 +115,7 @@
         <version>1.6.0</version>
         <executions>
           <execution>
-            <id>front-end install</id>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <phase>prepare-package</phase>
-            <configuration>
-              <executable>cnpm</executable>
-              <arguments>
-                <argument>install</argument>
-              </arguments>
-            </configuration>
-          </execution>
-          <execution>
-            <id>front-end unit test</id>
-            <goals>
-              <goal>exec</goal>
-            </goals>
-            <phase>prepare-package</phase>
-            <configuration>
-              <executable>npm</executable>
-              <arguments>
-                <argument>run</argument>
-                <argument>test:unit</argument>
-              </arguments>
-            </configuration>
-          </execution>
-          <execution>
-            <id>front-end build package</id>
+            <id>tmwfrontend build package</id>
             <goals>
               <goal>exec</goal>
             </goals>
@@ -157,7 +129,7 @@
             </configuration>
           </execution>
           <!-- <execution>
-            <id>front-end e2e test</id>
+            <id>tmwfrontend e2e test</id>
             <goals>
               <goal>exec</goal>
             </goals>
@@ -166,13 +138,13 @@
               <executable>npm</executable>
               <arguments>
                 <argument>run</argument>
-                <argument>test:e2e</argument>
+                <argument>test:integration</argument>
               </arguments>
             </configuration>
           </execution> -->
         </executions>
         <configuration>
-          <workingDirectory>${basedir}/front-end</workingDirectory>
+          <workingDirectory>${basedir}/tmwfrontend</workingDirectory>
         </configuration>
       </plugin>
       <plugin>
@@ -180,7 +152,7 @@
         <version>3.1.0</version>
         <executions>
           <execution>
-            <id>copy front-end template</id>
+            <id>copy tmwfrontend template</id>
             <goals>
               <goal>copy-resources</goal>
             </goals>
@@ -189,7 +161,7 @@
               <outputDirectory>${basedir}/src/main/resources/templates</outputDirectory>
               <resources>
                 <resource>
-                  <directory>front-end/dist</directory>
+                  <directory>tmwfrontend/dist</directory>
                   <includes>
                     <include>index.html</include>
                   </includes>
@@ -198,7 +170,7 @@
             </configuration>
           </execution>
           <execution>
-            <id>copy front-end assets</id>
+            <id>copy tmwfrontend assets</id>
             <goals>
               <goal>copy-resources</goal>
             </goals>
@@ -207,7 +179,7 @@
               <outputDirectory>${basedir}/src/main/resources/static</outputDirectory>
               <resources>
                 <resource>
-                  <directory>front-end/dist</directory>
+                  <directory>tmwfrontend/dist</directory>
                   <excludes>
                     <exclude>index.html</exclude>
                   </excludes>
@@ -216,7 +188,7 @@
             </configuration>
           </execution>
           <execution>
-            <id>copy front-end template to target</id>
+            <id>copy tmwfrontend template to target</id>
             <goals>
               <goal>copy-resources</goal>
             </goals>
@@ -225,7 +197,7 @@
               <outputDirectory>${basedir}/target/classes/templates</outputDirectory>
               <resources>
                 <resource>
-                  <directory>front-end/dist</directory>
+                  <directory>tmwfrontend/dist</directory>
                   <includes>
                     <include>index.html</include>
                   </includes>
@@ -234,7 +206,7 @@
             </configuration>
           </execution>
           <execution>
-            <id>copy front-end assets to target</id>
+            <id>copy tmwfrontend assets to target</id>
             <goals>
               <goal>copy-resources</goal>
             </goals>
@@ -243,7 +215,7 @@
               <outputDirectory>${basedir}/target/classes/static</outputDirectory>
               <resources>
                 <resource>
-                  <directory>front-end/dist</directory>
+                  <directory>tmwfrontend/dist</directory>
                   <excludes>
                     <exclude>index.html</exclude>
                   </excludes>

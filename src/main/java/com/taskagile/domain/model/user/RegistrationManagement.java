@@ -1,7 +1,9 @@
 package com.taskagile.domain.model.user;
 
 import com.taskagile.domain.common.security.PasswordEncryptor;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RegistrationManagement {
   private UserRepository repository;
   private PasswordEncryptor passwordEncryptor;
