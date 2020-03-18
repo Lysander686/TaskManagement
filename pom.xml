@@ -147,7 +147,8 @@
           <workingDirectory>${basedir}/tmwfrontend</workingDirectory>
         </configuration>
       </plugin>
-      <plugin>
+      <!-- skip copy assets to save time -->
+      <!-- <plugin>
         <artifactId>maven-resources-plugin</artifactId>
         <version>3.1.0</version>
         <executions>
@@ -224,7 +225,7 @@
             </configuration>
           </execution>
         </executions>
-      </plugin>
+      </plugin> -->
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
         <version>3.1.0</version>
