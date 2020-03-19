@@ -7,15 +7,11 @@
           <div v-show="errorMessage" class="alert alert-danger failed">{{ errorMessage }}</div>
           <div class="form-group">
             <label for="username">Username or email address</label>
-
             <input type="text" class="form-control" id="username" v-model="form.username">
-
             <div class="field-error" v-if="$v.form.username.$dirty">
               <div class="error" v-if="!$v.form.username.required">Username or email address is required</div>
             </div>
-
           </div>
-          
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" v-model="form.password">
@@ -74,7 +70,7 @@ export default {
       }
 
       authenticationService.authenticate(this.form).then(() => {
-        this.$router.push({name: 'HomePage'})
+        this.$router.push({name: 'home'})
       }).catch((error) => {
         this.errorMessage = error.message
       })

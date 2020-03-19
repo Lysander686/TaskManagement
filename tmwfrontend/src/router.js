@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HomePage from '@/views/HomePage'
 import LoginPage from '@/views/LoginPage'
 import RegisterPage from '@/views/RegisterPage'
+import BoardPage from '@/views/BoardPage'
 
 Vue.use(Router)
 
@@ -11,15 +12,19 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [{
     path: '/',
-    name: 'HomePage',
+    name: 'home',
     component: HomePage
   }, {
     path: '/login',
-    name: 'LoginPage',
+    name: 'login',
     component: LoginPage
   }, {
     path: '/register',
-    name: 'RegisterPage',
+    name: 'register',
     component: RegisterPage
+  }, {
+    path: '/board/:boardId',
+    name: 'board',
+    component: BoardPage
   }]
 })

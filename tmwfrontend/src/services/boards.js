@@ -6,7 +6,7 @@ export default {
    * Create a new board
    * @param {*} detail the board detail
    */
-  create(detail) {
+  create (detail) {
     return new Promise((resolve, reject) => {
       axios.post('/boards', detail).then(({data}) => {
         resolve(data)

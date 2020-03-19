@@ -6,7 +6,7 @@ export default {
    * Authenticate a login request
    * @param {Object} detail login detail
    */
-  authenticate(detail) {
+  authenticate (detail) {
     return new Promise((resolve, reject) => {
       axios.post('/authentications', detail).then(({data}) => {
         resolve(data)

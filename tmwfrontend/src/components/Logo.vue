@@ -1,14 +1,14 @@
 <template>
   <div class="logo-wrapper">
-    <img class="logo" src="..\static\task logo.png" />
-    <div class="tagline">Focus more. Achive your goals.</div>
+    <img class="logo" src="/static/images/logo.png">
+    <div class="tagline">Focus more. Achive your goal</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Logo"
-};
+  name: 'Logo'
+}
 </script>
 
 <style lang="scss" scoped>

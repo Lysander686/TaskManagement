@@ -48,7 +48,7 @@ describe('RegisterPage.vue', () => {
     expect(wrapper.find('.logo').attributes().src)
       .toEqual('/static/images/logo.png')
     expect(wrapper.find('.tagline').text())
-      .toEqual('Open source task management tool')
+      .toEqual('Focus more. Achive your goal')
     expect(fieldUsername.element.value).toEqual('')
     expect(fieldEmailAddress.element.value).toEqual('')
     expect(fieldPassword.element.value).toEqual('')
@@ -91,7 +91,7 @@ describe('RegisterPage.vue', () => {
     wrapper.vm.submitForm()
     expect(registerSpy).toBeCalled()
     await wrapper.vm.$nextTick()
-    expect(stub).toHaveBeenCalledWith({name: 'LoginPage'})
+    expect(stub).toHaveBeenCalledWith({name: 'login'})
   })
 
   it('should fail it is not a new user', async () => {

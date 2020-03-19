@@ -24,7 +24,7 @@ module.exports = {
 
     loginPage
       .assert.visible('@formError')
-      .assert.containsText('@formError', 'Request failed with status code 400')
+      .assert.containsText('@formError', 'Invalid credentials')
 
     browser
       .assert.urlEquals(browser.launchUrl + 'login')
@@ -41,7 +41,7 @@ module.exports = {
 
     homePage
       .navigate()
-      .expect.element('@pageTitle').text.to.contain('Home Page')
+      .assert.visible('@logoImage')
 
     browser.end()
   },
@@ -56,7 +56,7 @@ module.exports = {
 
     homePage
       .navigate()
-      .expect.element('@pageTitle').text.to.contain('Home Page')
+      .assert.visible('@logoImage')
 
     browser.end()
   }
