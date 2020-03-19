@@ -3,13 +3,19 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
+const state = {
+  user: {
+    name: null
   }
+  ,
+  teams: [],
+  boards: []
+}
+export default new Vuex.Store({
+  state,
+  getters,
+  actions,
+  mutations,
+  plugins: process
 })
+
